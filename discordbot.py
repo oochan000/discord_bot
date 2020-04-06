@@ -14,4 +14,4 @@ async def loop():
 
 loop.start()
 
-client.run("Njk0MTU0MTcxODAwMDkyNzUy.XooKMA.2D3yvlE5SXzWvYONUbn3Z5ZQFkA")
+client.run("Njk0MTU0MTcxODAwMDkyNzUy.XosxQg.o7eHCTfDslYdOzR_N93YSxXIW1E")
