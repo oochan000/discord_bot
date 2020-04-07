@@ -1,6 +1,6 @@
 import discord
 from discord.ext import tasks
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 
 client = discord.Client()
