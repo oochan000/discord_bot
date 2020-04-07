@@ -1,20 +1,19 @@
 import discord
 from discord.ext import tasks
-from datetime import datetime, timedelta
+from datetime import datetime
 import os
 
 client = discord.Client()
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-@tasks.loop(seconds=60)
+@tasks.loop(seconds=10)
 async def loop():
     prenow = datetime.utcnow() + timedelta(hours=9)
     now = prenow.strftime('%y/%m/%d-%H:%M')
-    if now == '20/04/07-12:57':
-        alert_channel = client.get_channel(694093239954833412)
-        msg = f'DSS説明会まであと15分！'
-        await alert_channel.send(msg)
+    if now == '20/04/07-13:20':
+        voice = await client.get_channel(692958909476110409).connect()
+        voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
 
 loop.start()
 
