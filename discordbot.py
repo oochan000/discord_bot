@@ -12,12 +12,12 @@ token = os.environ['DISCORD_BOT_TOKEN']
 async def loop():
     prenow = datetime.utcnow() + timedelta(hours=9)
     now = prenow.strftime('%H:%M')
-    if now == '14:03':
+    if now == '14:05':
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
         time.sleep(130)
         await voice.disconnect()
-    elif now == '14:08':
+    elif now == '14:10':
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
         time.sleep(130)
