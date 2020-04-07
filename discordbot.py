@@ -8,7 +8,7 @@ client = discord.Client()
 async def loop():
     prenow = datetime.utcnow() + timedelta(hours=9)
     now = prenow.strftime('%y/%m/%d-%H:%M')
-    if now == '20/04/06-12:10':
+    if now == '20/04/07-12:13':
         alert_channel = client.get_channel(694093239954833412)
         msg = f'DSS説明会まであと15分！'
         await alert_channel.send(msg)
