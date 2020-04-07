@@ -14,10 +14,12 @@ async def loop():
     if now == '13:55':
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
+        time.sleep(130)
         await voice.disconnect()
     elif now == '14:00':
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
+        time.sleep(130)
         await voice.disconnect()
 
 loop.start()
