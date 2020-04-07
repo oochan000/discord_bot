@@ -11,7 +11,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 async def loop():
     prenow = datetime.utcnow() + timedelta(hours=9)
     now = prenow.strftime('%y/%m/%d-%H:%M')
-    if now == '20/04/07-12:53':
+    if now == '20/04/07-12:57':
         alert_channel = client.get_channel(694093239954833412)
         msg = f'DSS説明会まであと15分！'
         await alert_channel.send(msg)
