@@ -30,10 +30,10 @@ async def time_check():
 
 @client.command(aliases=["play"])
 async def play(ctx):
-	voice = await client.get_channel(692958909476110409).connect()
-	voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
-	await asyncio.sleep(130)
-	await voice.disconnect()
+    voice = await client.get_channel(692958909476110409).connect()
+    voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
+    await asyncio.sleep(130)
+    await voice.disconnect()
 
 client.loop.create_task(time_check())
 
