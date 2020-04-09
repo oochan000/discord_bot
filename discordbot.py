@@ -8,16 +8,12 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 client = commands.Bot(command_prefix='$')
 
-channel_id = '692958909476110409'
-
 @client.event
 async def time_check():
     await client.wait_until_ready()
     while not client.is_closed:
         prenow = datetime.utcnow() + timedelta(hours=9)
         now = prenow.strftime('%H:%M')
-
-        channel = client.get_channel(channel_id)
 
         if now == '22:58':
             voice = await client.get_channel(692958909476110409).connect()
@@ -33,7 +29,7 @@ async def time_check():
             await asyncio.sleep(1)
 
 @client.event
-async def on_message(massage):
+async def on_message(message):
     if message.content.startwith("$play"):
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
