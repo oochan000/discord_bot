@@ -15,7 +15,7 @@ async def time_check():
         prenow = datetime.utcnow() + timedelta(hours=9)
         now = prenow.strftime('%H:%M')
 
-        if now == '22:58':
+        if now == '15:10':
             voice = await client.get_channel(692958909476110409).connect()
             voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
             await asyncio.sleep(130)
@@ -27,13 +27,6 @@ async def time_check():
             await voice.disconnect()
         else:
             await asyncio.sleep(1)
-
-@client.command(aliases=["play"])
-async def play(ctx):
-    voice = await client.get_channel(692958909476110409).connect()
-    voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
-    await asyncio.sleep(130)
-    await voice.disconnect()
 
 client.loop.create_task(time_check())
 
