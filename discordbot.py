@@ -29,12 +29,12 @@ async def time_check():
             voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
             await asyncio.sleep(130)
             await voice.disconnect()
-        else
+        else:
             await asyncio.sleep(1)
 
 @client.event
 async def on_message(massage):
-    if message.content.startwith("$play")
+    if message.content.startwith("$play"):
         voice = await client.get_channel(692958909476110409).connect()
         voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
         await asyncio.sleep(130)
