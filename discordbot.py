@@ -1,33 +1,28 @@
 import discord
+from discord.ext import tasks
+from datetime import datetime, timedelta
 import asyncio
 import os
-from datetime import datetime, timedelta
-from discord.ext import commands
+
+client = discord.Client()
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-client = commands.Bot(command_prefix='$')
+@tasks.loop(seconds=30)
+async def loop():
+    prenow = datetime.utcnow() + timedelta(hours=9)
+    now = prenow.strftime('%H:%M')
+    if now == '22:58':
+        voice = await client.get_channel(692958909476110409).connect()
+        voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
+        await asyncio.sleep(130)
+        await voice.disconnect()
+    elif now == '23:58':
+        voice = await client.get_channel(692958909476110409).connect()
+        voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
+        await asyncio.sleep(130)
+        await voice.disconnect()
 
-@client.event
-async def time_check():
-    await client.wait_until_ready()
-    while not client.is_closed:
-        prenow = datetime.utcnow() + timedelta(hours=9)
-        now = prenow.strftime('%H:%M')
-
-        if now == '15:10':
-            voice = await client.get_channel(692958909476110409).connect()
-            voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
-            await asyncio.sleep(130)
-            await voice.disconnect()
-        elif now == '23:58':
-            voice = await client.get_channel(692958909476110409).connect()
-            voice.play(discord.FFmpegPCMAudio('Shannons_Lullaby.mp3'))
-            await asyncio.sleep(130)
-            await voice.disconnect()
-        else:
-            await asyncio.sleep(1)
-
-client.loop.create_task(time_check())
+loop.start()
 
 client.run(token)
