@@ -8,8 +8,8 @@ client = discord.Client()
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-if not discord.opus.is_loaded():
-    discord.opus.load_opus("heroku-buildpack-libopus")
+#if not discord.opus.is_loaded():
+#    discord.opus.load_opus("heroku-buildpack-libopus")
 
 @tasks.loop(seconds=30)
 async def loop():
